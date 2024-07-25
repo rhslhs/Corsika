@@ -7,12 +7,6 @@ with open("fakeMPIrun.sh", 'w') as file:
 run_number = 1
 
 for i in range(1, 57):
-    # with open('run_number.txt', 'r') as run_mumber_file:
-    #     run_number = run_mumber_file.readline()
-    # run_number = int(run_number.strip())
-    # updated_number = run_number + 1
-    # print(run_number)
-
     # 生成 Corsika_muon.sh 脚本的 Python 脚本
     # 定义脚本内容
     script_content = "#!/bin/bash\n\n./corsika77500Linux_DPMJET_urqmd < ./all-inputs-files/all-inputs-p" + str(run_number) + " > ./CorsikaRunRecords/DPMJET_urqmd_p" + str(run_number) + "\n\n./corsika77500Linux_DPMJET_urqmd < ./all-inputs-files/all-inputs-He" + str(run_number) + " > ./CorsikaRunRecords/DPMJET_urqmd_He" + str(run_number)
@@ -24,15 +18,6 @@ for i in range(1, 57):
 
     with open(bash_path, 'w') as file:
         file.write(script_content)
-
-    # print(bash_name + " 脚本已生成")
-
-
-    # 更新 run_number.txt 文件
-    # with open('run_number.txt', 'w') as run_mumber_file:
-    #     run_mumber_file.write(str(updated_number))
-    # print("run_number.txt 文件已更新")
-
 
     # 将生成的脚本加入 fakeMPIrun.sh 文件
     with open('fakeMPIrun.sh', 'r') as file:
